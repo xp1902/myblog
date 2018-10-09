@@ -1,0 +1,29 @@
+{% extends 'blog1/base.html' %}
+{% block title %}My &amp; blog{% endblock %}
+{% block h1 %}<a href = '{% url 'blog1:edit_page' 0 %}'>new article</a>{% endblock %}
+{% block main %}
+    {% for article in articles %}
+        <article class="post post-1">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    <a href = "{% url 'blog1:article_page' article.id %}">{{ article.title }}</a>
+                </h1>
+                <div class="entry-meta">
+                    <span class="post-category"><a href="#">Web Design</a></span>
+
+                    <span class="post-date"><a href="#"><time class="entry-date" datetime=" ">April 13, 2016</time></a></span>
+
+                    <span class="post-author"><a href="#">Tlion-self</a></span>
+
+                    <span class="comments-link"><a href="#">no Comment yet</a></span>
+                </div>
+            </header>
+            <div class="entry-content clearfix">
+                <p>nothing now!!!</p>
+                <div class="read-more cl-effect-14">
+                    <a href = "{% url 'blog1:article_page' article.id %}">Continue readinG <span class="meta-nav">→</span></a>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}

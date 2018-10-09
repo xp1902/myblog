@@ -1,0 +1,64 @@
+{% extends 'blog1/base.html' %}
+{% block title %}article page{% endblock %}
+{% block h1 %}<a href="{% url 'blog1:index' %}">回到主页</a>{% endblock %}
+{% block main %}
+
+    <article class="post post-1">
+        <header class="entry-header">
+            <h1 class="entry-title">{{ article.title }}</h1>
+            <div class="entry-meta">
+                <span class="post-author"><a href="#">Tlion</a></span>
+
+                <span class="post-category">
+                <a href="{% url 'blog1:edit_page' article.id %}">修改文章</a></span>
+
+                <span class="comments-link"><a href="#">4 Comments</a></span>
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            {{ article.content }}
+        </div>
+    </article>
+    <section class="comment-area">
+        <h2>留下你的评论</h2>
+        <form action="#" class="comment-form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" name="name" placeholder="名字" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="email" name="email" placeholder="邮箱" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="url" placeholder="网址" required>
+                </div>
+                <input hidden name = "id" value="{{ article.id }}">
+                <div class="col-md-12">
+                    <textarea name="comment" rows="7" placeholder="" required></textarea>
+                    <button class="" name="submit"><span>发表</span></button>
+                </div>
+            </div>    <!-- row -->
+        </form>
+
+        <div class="comment-list">
+            <h2>评论列表</h2>
+            <ul class="list-unstyled">
+                <li class="comment-item">
+                    <span class="name">追梦人物</span><time class="date">2017年3月12日 14:56</time>
+                    <div class="text">
+                        还不错哦
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <span class="name">追梦人物</span><time class="date">2017年3月12日 14:56</time>
+                    <div class="text">
+                        还不错哦
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+
+

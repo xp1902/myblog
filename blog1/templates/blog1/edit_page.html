@@ -1,0 +1,21 @@
+{% extends 'blog1/base.html' %}
+{% block title %}edit-page{% endblock %}
+{% block h1 %}<a href="{% url 'blog1:index' %}">回到主页</a>{% endblock %}
+{% block main %}
+    <form action="{% url 'blog1:edit_action' %}" method="post" class="comment-form">
+    {% csrf_token %}
+        <input type="hidden" name="article_id" value="{{ article.id | default:'0'}}">
+        <div class="col-lg-12">
+            <label>文章标题：
+                <input type="text" name="title" value="{{ article.title }}">
+            </label>
+        </div>
+        <br>
+        <div class="col-md-12">
+            <label>文章内容：<br>
+                <textarea name="content" cols="100" rows="20">{{ article.content }}</textarea>
+            </label><br>
+                <button name="submit" class="button"><span>提交</span></button>
+        </div>
+    </form>
+{% endblock %}
