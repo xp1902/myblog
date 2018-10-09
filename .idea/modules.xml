@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://G:/PythonCode/MyBlog/.idea/MyBlog.iml" filepath="G:/PythonCode/MyBlog/.idea/MyBlog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/myblog.iml" filepath="$PROJECT_DIR$/.idea/myblog.iml" />
+      <module fileurl="file://G:/PythonCode/pygame_/.idea/pygame_.iml" filepath="G:/PythonCode/pygame_/.idea/pygame_.iml" />
+    </modules>
+  </component>
+</project>
